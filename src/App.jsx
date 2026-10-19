@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import api from "./services/api";
 import { setCredentials, logout } from "./features/auth/authSlice";
-
+import Logo from "./asset/logo.png";
 const cx = (...v) => v.filter(Boolean).join(" ");
 
 function Button({
@@ -110,27 +110,16 @@ function Login({ onLogin }) {
     <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
       <div className="grid w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-200/70 md:grid-cols-2">
         <div className="hidden flex-col justify-between bg-gradient-to-br from-teal-800 to-slate-900 p-10 text-white md:flex">
-          <div className="flex items-center gap-3">
-            <div className="rounded-2xl bg-white/15 p-3">
-              <Building2 size={27} />
+          <div className="flex items-center justify-center gap-3">
+            <div className="rounded-2xl bg-white p-3">
+              <img src={Logo} alt="" />
             </div>
-            <span className="text-lg font-bold">PeopleDesk</span>
           </div>
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[.2em] text-teal-200">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[.2em] text-teal-200 text-center">
               Employee management
             </p>
-            <h1 className="text-4xl font-bold leading-tight">
-              Manage your people, simply.
-            </h1>
-            <p className="mt-4 leading-7 text-slate-200">
-              A central place for sections, access requests and employee
-              records.
-            </p>
           </div>
-          <p className="text-xs text-slate-300">
-            Secure role-based access · MERN stack
-          </p>
         </div>
         <div className="p-7 sm:p-10">
           <div className="mb-8 flex items-center gap-3 md:hidden">
@@ -170,11 +159,6 @@ function Login({ onLogin }) {
               {busy ? "Signing in…" : "Sign in"} <span>→</span>
             </Button>
           </form>
-          <div className="mt-7 rounded-xl bg-slate-50 p-4 text-xs leading-5 text-slate-500">
-            <b className="text-slate-700">First setup:</b> seed the default
-            admin from the README, then change the default password before real
-            use.
-          </div>
         </div>
       </div>
     </div>
@@ -319,7 +303,7 @@ function App() {
             <Building2 size={21} />
           </div>
           <div>
-            <p className="font-bold tracking-tight">PeopleDesk</p>
+            <p className="font-bold tracking-tight">Gazaria Group</p>
             <p className="text-xs text-slate-500">Employee management</p>
           </div>
         </div>
@@ -414,7 +398,7 @@ function App() {
                   YOUR WORKSPACE
                 </p>
                 <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
-                  Hello, {user.name?.split(" ")[0]} 👋
+                  Hello, {user.name}
                 </h2>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-slate-200">
                   {isAdmin
