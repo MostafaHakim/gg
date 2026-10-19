@@ -86,7 +86,7 @@ function Status({ value }) {
   );
 }
 function Login({ onLogin }) {
-  const [email, setEmail] = useState("admin@example.com"),
+  const [empId, setEmpId] = useState("110081"),
     [password, setPassword] = useState("Admin@12345"),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
@@ -95,7 +95,7 @@ function Login({ onLogin }) {
     setBusy(true);
     setError("");
     try {
-      const { data } = await api.post("/auth/login", { email, password });
+      const { data } = await api.post("/auth/login", { empId, password });
       onLogin(data);
     } catch (err) {
       setError(
@@ -135,10 +135,10 @@ function Login({ onLogin }) {
           </p>
           <form onSubmit={submit} className="mt-7 space-y-5">
             <Field
-              label="Email address"
-              type="email"
+              label="Login Id"
+              type="text"
               autoComplete="username"
-              value={email}
+              value={empId}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
