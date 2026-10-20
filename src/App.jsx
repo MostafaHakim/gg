@@ -139,7 +139,7 @@ function Login({ onLogin }) {
               type="text"
               autoComplete="username"
               value={empId}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmpId(e.target.value)}
               required
             />
             <Field
