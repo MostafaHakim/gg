@@ -177,7 +177,7 @@ function App() {
   const [sectionName, setSectionName] = useState(""),
     [sectionDesc, setSectionDesc] = useState("");
   const [icName, setIcName] = useState(""),
-    [icEmail, setIcEmail] = useState(""),
+    [icEmpId, setIcEmpId] = useState(""),
     [icPassword, setIcPassword] = useState("");
   const [emp, setEmp] = useState({
     employeeId: "",
@@ -253,13 +253,14 @@ function App() {
       () =>
         api.post("/users/incharges", {
           name: icName,
-          email: icEmail,
+          empId: icEmpId,
           password: icPassword,
         }),
+      console.log(icEmpId, icName, icPassword),
       "In-charge account created.",
     );
     setIcName("");
-    setIcEmail("");
+    setIcEmpId("");
     setIcPassword("");
   }
   async function createEmployee(e) {
@@ -856,11 +857,11 @@ function App() {
                     required
                   />
                   <Field
-                    label="Email"
-                    type="email"
-                    value={icEmail}
-                    onChange={(e) => setIcEmail(e.target.value)}
-                    placeholder="name@company.com"
+                    label="Id"
+                    type="text"
+                    value={icEmpId}
+                    onChange={(e) => setIcEmpId(e.target.value)}
+                    placeholder="12345678"
                     required
                   />
                   <Field
@@ -887,7 +888,7 @@ function App() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold">{u.name}</p>
-                        <p className="text-sm text-slate-500">{u.email}</p>
+                        <p className="text-sm text-slate-500">{u.empId}</p>
                       </div>
                       <Status value={u.active ? "active" : "inactive"} />
                     </div>
