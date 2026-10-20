@@ -138,7 +138,6 @@ function Login({ onLogin }) {
               label="Login Id"
               type="text"
               autoComplete="username"
-              value={empId}
               onChange={(e) => setEmpId(e.target.value)}
               required
             />
